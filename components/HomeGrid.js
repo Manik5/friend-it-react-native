@@ -5,31 +5,13 @@ import {
 	Text,
 	TouchableNativeFeedback,
 	TouchableOpacity,
-	Platform,
-	StatusBar,
-	SafeAreaView,
-	TextInput
+	Platform
 } from 'react-native';
-
-import { Ionicons } from '@expo/vector-icons'
 
 const HomeGrid  = props => {
 	return (
-		<SafeAreaView>
-			<View>
-				<View>
-					<View>
-						<Ionicons />
-						<TextInput />
-					</View>
-				</View>
-			</View>
-		</SafeAreaView>
+		<View>
+
+		</View>
 	)
 }
-
-const styles = StyleSheet.create({
-
-});
-
-export default HomeGrid;
