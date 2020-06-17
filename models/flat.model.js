@@ -1,5 +1,5 @@
 class Flat {
-	constructor(id, ownerId, title, description, imageUrl, perk, price, location) {
+	constructor(id, ownerId, title, imageUrl, description, perk, price, location) {
 		this.id = id,
 		this.ownerId = ownerId,
 		this.title = title,
@@ -10,3 +10,5 @@ class Flat {
 		this.location = location
 	}
 }
+
+export default Flat;
