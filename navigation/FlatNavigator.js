@@ -18,8 +18,9 @@ const FlatNavigator = createStackNavigator({
   Home: HomeScreen
 }, {
   defaultNavigationOptions: {
-    headerStyle: {
-      backgroundColor: 'white'
+    headerTitleStyle: {
+      backgroundColor: 'white',
+      alignSelf: 'center'
     },
     headerTintColor: Colors.primary
   }
