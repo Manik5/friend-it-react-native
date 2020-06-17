@@ -17,7 +17,11 @@ const HomeScreen = props => {
       }
    />
   )
-}
+};
+
+HomeScreen.navigationOptions = {
+  headerTitle: 'Home'
+};
 
 const styles = StyleSheet.create({
 
