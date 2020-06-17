@@ -1,11 +1,10 @@
 import React from 'react';
+
+import { Col, Row, Grid } from 'react-native-easy-grid';
+
 import {
 	View,
 	StyleSheet,
-	Text,
-	TouchableNativeFeedback,
-	TouchableOpacity,
-	Platform
 } from 'react-native';
 
 const HomeGrid  = props => {
