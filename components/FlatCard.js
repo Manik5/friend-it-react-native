@@ -4,19 +4,27 @@ import { Card, Button } from 'react-native-elements';
 
 const FlatCard = props => {
   return (
-    <Card>
+    <Card
+      containerStyle={{
+        width: 300
+      }}
+    >
       <Image
         style={styles.image}
         source={{ uri: props.image}}
       />
       <Text style={styles.title}>{props.title}</Text>
       <Text style={styles.price}>${props.price}</Text>
-      <View style={styles.button}>
         <Button
+          type='outline'
           title="View Details"
           onPress={props.onViewDetail}
+          buttonStyle={{
+             borderRadius: 20,
+             width: 200,
+             alignItems: 'center'
+           }}
         />
-      </View>
     </Card>
   );
 };
@@ -33,9 +41,6 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 14,
     color: '#888'
-  },
-  button: {
-    borderRadius: 20
   }
 })
 
