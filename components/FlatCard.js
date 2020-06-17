@@ -20,7 +20,8 @@ const FlatCard = props => {
 				 title="View"
 				 type="outline"
 				 buttonStyle={{
-					 borderRadius: 20
+					 borderRadius: 20,
+					 backgroundColor: 'white'
 				 }}
 			 />
     </Card>
@@ -30,7 +31,8 @@ const FlatCard = props => {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 200
+		height: 200,
+		borderRadius: 10
   },
   title: {
     fontSize: 16,
