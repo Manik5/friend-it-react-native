@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 
 import { useSelector } from 'react-redux';
@@ -22,8 +22,10 @@ const FlatDetailScreen = props => {
           source={{uri: selectedFlat.imageUrl}}
         />
         <Text style={styles.description}>{selectedFlat.description}</Text>
-        <Text style={styles.price}>${selectedFlat.price}</Text>
-        <Text style={styles.location}>{selectedFlat.location}</Text>
+        <View style={styles.secondContainer}>
+          <Text style={styles.price}>${selectedFlat.price}</Text>
+          <Text style={styles.location}>{selectedFlat.location}</Text>
+        </View>
         <Card>
           <Text style={styles.perk}>{selectedFlat.perk}</Text>
         </Card>
@@ -62,21 +64,41 @@ FlatDetailScreen.navigationOptions = navData => {
 
 const styles = StyleSheet.create({
   image: {
-
+    width: "100%",
+    height: 300,
+  },
+  description: {
+    fontSize: 15,
+    textAlign: "center",
+    marginTop: 20,
+  },
+  secondContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingRight: 20,
+    paddingLeft: 20,
+  },
+  price: {
+    fontSize: 14,
+    color: "#888",
+  },
+  location: {
+    fontSize: 14,
+    color: "#888",
   },
   action: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent:'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
-  container: {
-  },
+  container: {},
   mapStyle: {
     width: 400,
     height: 300,
-  }
-})
+  },
+});
 
 export default FlatDetailScreen;
