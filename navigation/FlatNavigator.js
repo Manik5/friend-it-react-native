@@ -12,15 +12,16 @@ import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/color.constant';
 
 import HomeScreen from '../screens/HomeScreen';
+import FlatDetailScreen from '../screens/FlatDetailScreen';
 
 
 const FlatNavigator = createStackNavigator({
-  Home: HomeScreen
+	Home: HomeScreen,
+	FlatDetail: FlatDetailScreen
 }, {
   defaultNavigationOptions: {
     headerTitleStyle: {
       backgroundColor: 'white',
-      alignSelf: 'center'
     },
     headerTintColor: Colors.primary
 	},
