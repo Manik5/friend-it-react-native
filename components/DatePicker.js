@@ -22,10 +22,6 @@ const MyDatePicker = () => {
     showMode("date");
   };
 
-  const showTimepicker = () => {
-    showMode("time");
-  };
-
   return (
     <View>
       <View>
