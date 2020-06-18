@@ -21,7 +21,8 @@ const FlatNavigator = createStackNavigator({
 }, {
   defaultNavigationOptions: {
     headerTitleStyle: {
-      backgroundColor: 'white',
+			backgroundColor: 'white',
+			fontSize: 18
     },
     headerTintColor: Colors.primary
 	},

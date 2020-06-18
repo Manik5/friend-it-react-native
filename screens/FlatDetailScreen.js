@@ -21,7 +21,9 @@ const FlatDetailScreen = props => {
           style={styles.image}
           source={{uri: selectedFlat.imageUrl}}
         />
-        <Text style={styles.description}>{selectedFlat.description}</Text>
+        <View style={styles.container}>
+          <Text style={styles.description}>{selectedFlat.description}</Text>
+        </View>
         <View style={styles.secondContainer}>
           <Text style={styles.price}>${selectedFlat.price}</Text>
           <Text style={styles.location}>{selectedFlat.location}</Text>
@@ -49,7 +51,7 @@ const FlatDetailScreen = props => {
           onPress={() => {}}
          />
        </View>
-       <View style={styles.container}>
+       <View>
          <MapView style={styles.mapStyle} />
        </View>
     </ScrollView>
@@ -63,12 +65,16 @@ FlatDetailScreen.navigationOptions = navData => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingRight: 20,
+    paddingLeft: 20
+  },
   image: {
     width: "100%",
     height: 300,
   },
   description: {
-    fontSize: 15,
+    fontSize: 14,
     textAlign: "center",
     marginTop: 20,
   },
@@ -78,6 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingRight: 20,
     paddingLeft: 20,
+    marginTop: 20
   },
   price: {
     fontSize: 14,
@@ -93,8 +100,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingLeft: 20,
     paddingRight: 20,
+    marginTop: 20,
+    marginBottom: 20
   },
-  container: {},
   mapStyle: {
     width: 400,
     height: 300,
