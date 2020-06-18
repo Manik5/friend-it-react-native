@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { Card, Button, Text } from 'react-native-elements';
 
+import Colors from '../constants/color.constant';
+
 
 const FlatCard = props => {
   let TouchableComponent = TouchableOpacity;
@@ -55,6 +57,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 10,
     textAlign: "center",
+    fontFamily: 'open-sans-bold',
+    color: Colors.primary
   },
   price: {
     fontSize: 14,
@@ -66,6 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginVertical: 10,
     textAlign: "center",
+    fontFamily: 'open-sans'
   }
 });
 

@@ -1,5 +1,5 @@
 class Flat {
-	constructor(id, ownerId, title, imageUrl, description, perk, price, location) {
+	constructor(id, ownerId, title, imageUrl,  description, perk, price, location) {
 		this.id = id,
 		this.ownerId = ownerId,
 		this.title = title,

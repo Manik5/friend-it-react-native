@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 
 import MapView from 'react-native-maps';
 
+import Colors from '../constants/color.constant';
+
 
 const FlatDetailScreen = props => {
   const flatId = props.navigation.getParam('flatId');
@@ -21,6 +23,9 @@ const FlatDetailScreen = props => {
           style={styles.image}
           source={{uri: selectedFlat.imageUrl}}
         />
+        <Image
+          source={{uri: selectedFlat.firstImage}}
+        />
         <View style={styles.container}>
           <Text style={styles.description}>{selectedFlat.description}</Text>
         </View>
@@ -28,7 +33,11 @@ const FlatDetailScreen = props => {
           <Text style={styles.price}>${selectedFlat.price}</Text>
           <Text style={styles.location}>{selectedFlat.location}</Text>
         </View>
-        <Card>
+        <Card
+          containerStyle={{
+            borderRadius: 20
+          }}
+        >
           <Text style={styles.perk}>{selectedFlat.perk}</Text>
         </Card>
        <View style={styles.action}>
@@ -51,7 +60,7 @@ const FlatDetailScreen = props => {
           onPress={() => {}}
          />
        </View>
-       <View>
+       <View style={styles.mapContainer}>
          <MapView style={styles.mapStyle} />
        </View>
     </ScrollView>
@@ -77,6 +86,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: "center",
     marginTop: 20,
+    fontFamily: 'open-sans',
+    color: Colors.text
   },
   secondContainer: {
     flex: 1,
@@ -89,10 +100,16 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 14,
     color: "#888",
+    fontFamily: 'open-sans'
   },
   location: {
     fontSize: 14,
     color: "#888",
+    fontFamily: 'open-sans'
+  },
+  perk: {
+    fontFamily: 'open-sans',
+    color: Colors.primary
   },
   action: {
     flex: 1,
@@ -103,6 +120,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20
   },
+    mapContainer: {
+      borderRadius: 40
+    },
   mapStyle: {
     width: 400,
     height: 300,
