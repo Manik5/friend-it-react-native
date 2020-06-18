@@ -23,8 +23,10 @@ const FlatDetailScreen = props => {
         />
         <Text style={styles.description}>{selectedFlat.description}</Text>
         <Text style={styles.price}>${selectedFlat.price}</Text>
-        <Text style={styles.perk}>{selectedFlat.perk}</Text>
         <Text style={styles.location}>{selectedFlat.location}</Text>
+        <Card>
+          <Text style={styles.perk}>{selectedFlat.perk}</Text>
+        </Card>
        <View style={styles.action}>
           <Button
             title="Book"
@@ -44,9 +46,9 @@ const FlatDetailScreen = props => {
           }}
           onPress={() => {}}
          />
-         <View style={styles.container}>
-           <MapView style={styles.mapStyle} />
-         </View>
+       </View>
+       <View style={styles.container}>
+         <MapView style={styles.mapStyle} />
        </View>
     </ScrollView>
   )
@@ -70,14 +72,10 @@ const styles = StyleSheet.create({
     paddingRight: 20
   },
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
   },
   mapStyle: {
-    width: 100,
-    height: 100
+    width: 400,
+    height: 300,
   }
 })
 
