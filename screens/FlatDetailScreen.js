@@ -5,7 +5,7 @@ import { Card, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 
 import MapView from 'react-native-maps';
-import DatePicker from '../components/DatePicker';
+import MyDatePicker from '../components/DatePicker';
 
 import Colors from '../constants/color.constant';
 
@@ -20,53 +20,48 @@ const FlatDetailScreen = props => {
 
   return (
     <ScrollView>
-        <Image
-          style={styles.image}
-          source={{uri: selectedFlat.imageUrl}}
-        />
-        <Image
-          source={{uri: selectedFlat.firstImage}}
-        />
-        <View style={styles.container}>
-          <Text style={styles.description}>{selectedFlat.description}</Text>
-        </View>
-        <View style={styles.secondContainer}>
-          <Text style={styles.price}>${selectedFlat.price}</Text>
-          <Text style={styles.location}>{selectedFlat.location}</Text>
-        </View>
-        <Card
-          containerStyle={{
-            borderRadius: 20
+      <Image style={styles.image} source={{ uri: selectedFlat.imageUrl }} />
+      <Image source={{ uri: selectedFlat.firstImage }} />
+      <View style={styles.container}>
+        <Text style={styles.description}>{selectedFlat.description}</Text>
+      </View>
+      <View style={styles.secondContainer}>
+        <Text style={styles.price}>${selectedFlat.price}</Text>
+        <Text style={styles.location}>{selectedFlat.location}</Text>
+      </View>
+      <Card
+        containerStyle={{
+          borderRadius: 20,
+        }}
+      >
+        <Text style={styles.perk}>{selectedFlat.perk}</Text>
+      </Card>
+      <MyDatePicker />
+      <View style={styles.action}>
+        <Button
+          title="Book"
+          type="outline"
+          buttonStyle={{
+            borderRadius: 20,
+            width: 100,
           }}
-        >
-          <Text style={styles.perk}>{selectedFlat.perk}</Text>
-        </Card>
-        <DatePicker />
-       <View style={styles.action}>
-          <Button
-            title="Book"
-            type="outline"
-            buttonStyle={{
-              borderRadius: 20,
-              width: 100
-            }}
-            onPress={() => {}}
-          />
-         <Button
+          onPress={() => {}}
+        />
+        <Button
           title="Swap"
           type="solid"
           buttonStyle={{
             borderRadius: 20,
-            width: 100
+            width: 100,
           }}
           onPress={() => {}}
-         />
-       </View>
-       <View style={styles.mapContainer}>
-         <MapView style={styles.mapStyle} />
-       </View>
+        />
+      </View>
+      <View style={styles.mapContainer}>
+        <MapView style={styles.mapStyle} />
+      </View>
     </ScrollView>
-  )
+  );
 }
 
 FlatDetailScreen.navigationOptions = navData => {
