@@ -1,31 +1,47 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  Platform
+} from 'react-native';
 import { Card, Button, Text } from 'react-native-elements';
 
 
 const FlatCard = props => {
+  let TouchableComponent = TouchableOpacity;
+
+  if (Platform.OS === 'android' && Platform.Version >= 21) {
+    TouchableComponent = TouchableNativeFeedback;
+  }
+
   return (
-    <Card
-      containerStyle={{
-        borderRadius: 10,
-        padding: 10,
-      }}
-    >
-      <Image style={styles.image} source={{ uri: props.image }} />
-      <Text style={styles.title}>{props.title}</Text>
-      <Text style={styles.price}>${props.price}</Text>
-      <Text style={styles.location}>{props.location}</Text>
-      <Button
-        title="View"
-        type="outline"
-        buttonStyle={{
-          borderRadius: 20,
-          backgroundColor: "white",
-          width: 100,
+    <TouchableComponent
+      onPress={props.onViewDetail}
+     >
+      <Card
+        containerStyle={{
+          borderRadius: 10,
+          padding: 10,
         }}
-        onPress={props.onViewDetail}
-      />
-    </Card>
+      >
+        <Image style={styles.image} source={{ uri: props.image }} />
+        <Text style={styles.title}>{props.title}</Text>
+        <Text style={styles.price}>${props.price}</Text>
+        <Text style={styles.location}>{props.location}</Text>
+        <Button
+          title="View"
+          type="outline"
+          buttonStyle={{
+            borderRadius: 20,
+            backgroundColor: "white",
+            width: 100,
+          }}
+          onPress={props.onViewDetail}
+        />
+      </Card>
+    </TouchableComponent>
   );
 };
 
