@@ -5,6 +5,7 @@ import { Card, Button } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 
 import MapView from 'react-native-maps';
+import DatePicker from '../components/DatePicker';
 
 import Colors from '../constants/color.constant';
 
@@ -40,6 +41,7 @@ const FlatDetailScreen = props => {
         >
           <Text style={styles.perk}>{selectedFlat.perk}</Text>
         </Card>
+        <DatePicker />
        <View style={styles.action}>
           <Button
             title="Book"
