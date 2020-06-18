@@ -1,29 +1,31 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
-import { Card, Button } from 'react-native-elements';
+import { View, StyleSheet, Image } from 'react-native';
+import { Card, Button, Text } from 'react-native-elements';
+
 
 const FlatCard = props => {
   return (
     <Card
-			containerStyle={{
-				borderRadius: 10,
-				padding: 10
-			}}
-		>
+      containerStyle={{
+        borderRadius: 10,
+        padding: 10
+      }}
+    >
       <Image
         style={styles.image}
         source={{ uri: props.image}}
       />
       <Text style={styles.title}>{props.title}</Text>
       <Text style={styles.price}>${props.price}</Text>
-			 <Button
-				 title="View"
-				 type="outline"
-				 buttonStyle={{
-					 borderRadius: 20,
-					 backgroundColor: 'white'
+       <Button
+         title="View"
+         type="outline"
+         buttonStyle={{
+           borderRadius: 20,
+           backgroundColor: 'white'
 				 }}
-			 />
+				 onPress={props.onViewDetail}
+       />
     </Card>
   );
 };
@@ -31,19 +33,19 @@ const FlatCard = props => {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-		height: 200,
-		borderRadius: 10
+    height: 200,
+    borderRadius: 10
   },
   title: {
     fontSize: 16,
-		marginVertical: 10,
-		textAlign: 'center'
+    marginVertical: 10,
+    textAlign: 'center'
   },
   price: {
     fontSize: 14,
-		color: '#888',
-		marginVertical: 10,
-		textAlign: 'center'
+    color: '#888',
+    marginVertical: 10,
+    textAlign: 'center'
   }
 })
 

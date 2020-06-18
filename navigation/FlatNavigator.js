@@ -23,7 +23,8 @@ const FlatNavigator = createStackNavigator({
       alignSelf: 'center'
     },
     headerTintColor: Colors.primary
-  }
+	},
 });
+
 
 export default createAppContainer(FlatNavigator);

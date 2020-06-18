@@ -17,7 +17,8 @@ const HomeScreen = props => {
           <FlatCard
             image={itemData.item.imageUrl}
             title={itemData.item.title}
-            price={itemData.item.price}
+						price={itemData.item.price}
+						onViewDetail={() => {}}
           />
          }
       />
