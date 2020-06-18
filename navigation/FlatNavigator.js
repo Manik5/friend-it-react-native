@@ -17,12 +17,14 @@ import FlatDetailScreen from '../screens/FlatDetailScreen';
 
 const FlatNavigator = createStackNavigator({
 	Home: HomeScreen,
-	FlatDetail: FlatDetailScreen
+	FlatDetail: FlatDetailScreen,
+
 }, {
   defaultNavigationOptions: {
     headerTitleStyle: {
 			backgroundColor: 'white',
-			fontSize: 18
+			fontSize: 18,
+			fontFamily: 'open-sans-bold'
     },
     headerTintColor: Colors.primary
 	},
