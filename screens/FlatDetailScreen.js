@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 
 import { useSelector } from 'react-redux';
 
-// carousel
-import Carousel from 'react-native-snap-carousel';
+import MapView from 'react-native-maps';
+
 
 const FlatDetailScreen = props => {
   const flatId = props.navigation.getParam('flatId');
@@ -17,10 +17,14 @@ const FlatDetailScreen = props => {
 
   return (
     <ScrollView>
-        <Image source={{uri: selectedFlat.imageUrl}} />
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
+        <Image
+          style={styles.image}
+          source={{uri: selectedFlat.imageUrl}}
+        />
+        <Text style={styles.description}>{selectedFlat.description}</Text>
+        <Text style={styles.price}>${selectedFlat.price}</Text>
+        <Text style={styles.perk}>{selectedFlat.perk}</Text>
+        <Text style={styles.location}>{selectedFlat.location}</Text>
        <View style={styles.action}>
           <Button
             title="Book"
@@ -40,6 +44,9 @@ const FlatDetailScreen = props => {
           }}
           onPress={() => {}}
          />
+         <View style={styles.container}>
+           <MapView style={styles.mapStyle} />
+         </View>
        </View>
     </ScrollView>
   )
@@ -52,12 +59,25 @@ FlatDetailScreen.navigationOptions = navData => {
 }
 
 const styles = StyleSheet.create({
+  image: {
+
+  },
   action: {
     flex: 1,
     flexDirection: 'row',
     justifyContent:'space-between',
     paddingLeft: 20,
     paddingRight: 20
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  mapStyle: {
+    width: 100,
+    height: 100
   }
 })
 
