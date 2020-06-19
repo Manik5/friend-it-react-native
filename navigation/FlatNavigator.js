@@ -18,11 +18,12 @@ import HomeScreen from '../screens/HomeScreen';
 import FlatDetailScreen from '../screens/FlatDetailScreen';
 import BookingOverlayScreen from '../screens/BookingOverlayScreen'
 
+
 // bottom navigator
-import ProfileScreen from '../screens/BottomNavigatorScreen/ProfileScreen';
-import MessagesScreen from '../screens/BottomNavigatorScreen/MesagesScreen';
-import DashboardScreen from '../screens/BottomNavigatorScreen/DashBoardScreen';
-import TripsScreen from '../screens/BottomNavigatorScreen/TripsScreen';
+import DashboardScreen from './BottomNavigator/DashBoardScreen';
+import MessagesScreen from './BottomNavigator/MessagesScreen';
+import ProfileScreen from './BottomNavigator/ProfileScreen';
+import TripsScreen from './BottomNavigator/TripsScreen';
 // bottom navigator
 
 
