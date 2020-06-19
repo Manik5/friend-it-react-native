@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 
-import { Ionicons, MaterialIcons, FontAwesome, FontAwesome5, SimpleLineIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons, FontAwesome,SimpleLineIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Colors from '../constants/color.constant';
 
@@ -47,6 +47,8 @@ const FlatNavigator = createStackNavigator({
   BookingOverlay: BookingOverlayScreen,
 }, {
   defaultNavigationOptions: defaultStyleNav
+}, {
+
 });
 
 
@@ -166,17 +168,30 @@ const BottomTabNavigator =
       }
     );
 
+
 // drawer navigation
 
 
-const DrawerNavigator = createDrawerNavigator({
-  Home: BottomTabNavigator,
-  Friends: FriendNavigator,
-  Upload: ListNavigator,
-  Flats: YourFlatNavigator
-}, {
-
-})
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Home: {
+      screen: BottomTabNavigator,
+      navigationOptions: {
+        drawerIcon: (drawerConfig) => (
+          <MaterialIcons
+            name="home"
+            size={23}
+            color={drawerConfig.tintColor}
+          />
+        ),
+      },
+    },
+    Friends: FriendNavigator,
+    Upload: ListNavigator,
+    Flats: YourFlatNavigator,
+  },
+  {}
+);
 
 
 export default createAppContainer(DrawerNavigator);
