@@ -10,7 +10,8 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+
 import Colors from '../constants/color.constant';
 
 import HomeScreen from '../screens/HomeScreen';
@@ -21,6 +22,7 @@ import BookingOverlayScreen from '../screens/BookingOverlayScreen'
 import ProfileScreen from '../screens/BottomNavigatorScreen/ProfileScreen';
 import MessagesScreen from '../screens/BottomNavigatorScreen/MesagesScreen';
 import DashboardScreen from '../screens/BottomNavigatorScreen/DashBoardScreen';
+import TripsScreen from '../screens/BottomNavigatorScreen/TripsScreen';
 // bottom navigator
 
 
@@ -40,10 +42,50 @@ const FlatNavigator = createStackNavigator({
 });
 
 const BottomTabNavigator = createBottomTabNavigator({
-  Home: FlatNavigator,
-  Dashboard: DashboardScreen,
-  Messages: MessagesScreen,
-  Profile: ProfileScreen
+  Home: {
+    screen: FlatNavigator,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return <MaterialIcons name='home' size={23} color={tabInfo.tintColor} />
+      }
+    }
+  },
+  Dashboard: {
+     screen: DashboardScreen,
+     navigationOptions: {
+       tabBarIcon: (tabInfo) => {
+         return <MaterialIcons name='dashboard' size={23} color={tabInfo.tintColor} />
+       }
+     }
+    },
+  Trips: {
+    screen: TripsScreen,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return <Ionicons name='ios-paper-plane' size={23} color={tabInfo.tintColor} />
+      }
+    }
+  },
+  Messages: {
+    screen: MessagesScreen,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return <Ionicons name='ios-chatbubbles' size={23} color={tabInfo.tintColor} />
+      }
+    }
+  },
+  Profile: {
+    screen: ProfileScreen,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return <FontAwesome name='user-circle-o' size={23} color={tabInfo.tintColor} />
+      }
+    }
+  },
+}, {
+  tabBarOptions: {
+    activeTintColor: Colors.primary
+  }
 });
 
 
