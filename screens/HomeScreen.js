@@ -9,13 +9,13 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import SearchBar from '../components/SearchBar';
 
-import { Ionicons } from '@expo/vector-icons';
 
 
 const HomeScreen = props => {
   const flats = useSelector(state => state.flats.availableFlats);
   return (
 		<View>
+			{/* <SearchBar /> */}
       <FlatList
        data={flats}
        keyExtractor={item => item.id}
@@ -44,7 +44,7 @@ const HomeScreen = props => {
 
 HomeScreen.navigationOptions = navData => {
   return {
-    headerTitle: 'Home',
+		headerTitle: 'Home',
     headerLeft: () => (
       <HeaderButtons
          HeaderButtonComponent={HeaderButton}

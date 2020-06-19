@@ -24,14 +24,16 @@ export default class MySearchBar extends React.Component {
           marginLeft: 20,
           marginRight: 20,
           marginTop: 20,
-          height: 50
+          height: 30,
+          width: 200,
         }}
         inputStyle={{
           fontSize: 16,
-          paddingBottom: 10
+          paddingBottom: 30
         }}
         searchIcon={{
-          paddingBottom: 10
+          paddingBottom: 30,
+          size: 18
         }}
       />
     );
