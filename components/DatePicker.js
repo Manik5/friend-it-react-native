@@ -295,29 +295,6 @@ class ShiftTimingScreen extends Component {
           // YOU NEED TO REPLACE IT WITH SOMETHING RELEVANT TO YOUR APP.
           this.saveEndingDate,
         )}
-
-        <TouchableOpacity
-          onPress={() => {
-            // this.setState({ isToTimePickerVisible: true, });
-            this.fRenderDatePicker("time", "isToTimePickerVisible");
-          }}>
-          <Input
-            label='Ending Time'
-            placeholder={"09:00 AM"}
-            editable={false}
-            value={this.fFormatDateTime(this.state.ToTimeValue, "time")}
-          />
-        </TouchableOpacity>
-        {this.fRenderDateTimePicker(
-          this.state.isToTimePickerVisible,
-          "isToTimePickerVisible",
-          "time",
-          defaultShiftEndDateTime,
-
-          // This is my function, which saves the selected value to my app's state.
-          // YOU NEED TO REPLACE IT WITH SOMETHING RELEVANT TO YOUR APP.
-          this.saveEndingTime,
-        )}
       </View>
     );
   } // end of: render()
