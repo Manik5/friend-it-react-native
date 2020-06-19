@@ -24,8 +24,11 @@ import DashboardScreen from './BottomNavigator/DashBoardScreen';
 import MessagesScreen from './BottomNavigator/MessagesScreen';
 import ProfileScreen from './BottomNavigator/ProfileScreen';
 import TripsScreen from './BottomNavigator/TripsScreen';
-// bottom navigator
 
+// drawer navigation
+import FriendListScreen from './DrawerNavigation/FriendListScreen';
+import ListFlatScreen from './DrawerNavigation/ListFlatScreen';
+import YourFlatScreen from './DrawerNavigation/YourFlatScreen';
 
 const FlatNavigator = createStackNavigator({
   Home: HomeScreen,
@@ -43,7 +46,7 @@ const FlatNavigator = createStackNavigator({
 });
 
 
-
+// bottom navigator
 const tabScreenConfig = {
   Home: {
     screen: FlatNavigator,
@@ -88,7 +91,7 @@ const tabScreenConfig = {
   },
 }
 
-
+// bottom navigator
 const BottomTabNavigator =
   Platform.OS === "android"
     ? createMaterialBottomTabNavigator(tabScreenConfig, {
@@ -100,7 +103,30 @@ const BottomTabNavigator =
         tabBarOptions: {
           activeTintColor: Colors.primary,
         },
-      });
+      }
+    );
+
+    const FriendNavigator = createStackNavigator({
+      FriendList: FriendListScreen,
+    });
+
+    const ListNavigator = createStackNavigator({
+      ListFlat: ListFlatScreen,
+    })
+
+    const YourFlatNavigator = createStackNavigator({
+      YourFlat: YourFlatScreen
+    })
+
+// drawer navigation
+const DrawerNavigator = createDrawerNavigator({
+  Home: BottomTabNavigator,
+  Friends: FriendNavigator,
+  Upload: ListNavigator,
+  Flats: YourFlatNavigator
+}, {
+
+})
 
 
-export default createAppContainer(BottomTabNavigator);
+export default createAppContainer(DrawerNavigator);
