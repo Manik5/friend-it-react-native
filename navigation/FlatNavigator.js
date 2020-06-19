@@ -41,14 +41,17 @@ const FlatNavigator = createStackNavigator({
   },
 });
 
-const BottomTabNavigator = createBottomTabNavigator({
+
+
+const tabScreenConfig = {
   Home: {
     screen: FlatNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
         return <MaterialIcons name='home' size={23} color={tabInfo.tintColor} />
       }
-    }
+    },
+    tabBarColor: Colors.primary
   },
   Dashboard: {
      screen: DashboardScreen,
@@ -82,11 +85,21 @@ const BottomTabNavigator = createBottomTabNavigator({
       }
     }
   },
-}, {
-  tabBarOptions: {
-    activeTintColor: Colors.primary
-  }
-});
+}
+
+
+const BottomTabNavigator =
+  Platform.OS === "android"
+    ? createMaterialBottomTabNavigator(tabScreenConfig, {
+        activeColor: Colors.primary,
+        shifting: true,
+        barStyle: { backgroundColor: "#FFFFFF" },
+      })
+    : createBottomTabNavigator(tabScreenConfig, {
+        tabBarOptions: {
+          activeTintColor: Colors.primary,
+        },
+      });
 
 
 export default createAppContainer(BottomTabNavigator);

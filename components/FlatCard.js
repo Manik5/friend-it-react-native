@@ -9,6 +9,7 @@ import {
 import { Card, Button, Text } from 'react-native-elements';
 
 import Colors from '../constants/color.constant';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
 const FlatCard = props => {
@@ -31,7 +32,7 @@ const FlatCard = props => {
         <Image style={styles.image} source={{ uri: props.image }} />
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.price}>${props.price}</Text>
-        <Text style={styles.location}>{props.location}</Text>
+        <Text style={styles.location}><MaterialIcons name='location-on' size={18} color={Colors.primary} /> {props.location}</Text>
         <Button
           title="View"
           type="outline"
