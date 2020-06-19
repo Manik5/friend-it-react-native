@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 30,
     fontFamily: 'open-sans',
     color: Colors.text
   },
@@ -92,17 +92,21 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingRight: 20,
     paddingLeft: 20,
-    marginTop: 20
+    marginTop: 30
   },
   price: {
     fontSize: 14,
     color: "#888",
-    fontFamily: 'open-sans'
+    fontFamily: 'open-sans',
+    marginBottom: 20,
+    marginTop: 20
   },
   location: {
     fontSize: 14,
     color: "#888",
-    fontFamily: 'open-sans'
+    fontFamily: 'open-sans',
+    marginBottom: 20,
+    marginTop: 20
   },
   perk: {
     fontFamily: 'open-sans',
@@ -114,8 +118,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingLeft: 20,
     paddingRight: 20,
-    marginTop: 20,
-    marginBottom: 20
+    marginTop: 30,
+    marginBottom: 30
   },
     mapContainer: {
       borderRadius: 40
