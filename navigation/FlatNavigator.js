@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 
-import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons, FontAwesome, FontAwesome5, SimpleLineIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Colors from '../constants/color.constant';
 
@@ -117,6 +117,15 @@ const BottomTabNavigator =
         FriendList: FriendListScreen,
       },
       {
+        navigationOptions: {
+          drawerIcon: drawerConfig => (
+            <Ionicons
+              name='ios-people'
+              size={23}
+              color={drawerConfig.tintColor}
+            />
+          )
+        },
         defaultNavigationOptions: defaultStyleNav
       }
     );
@@ -126,7 +135,16 @@ const BottomTabNavigator =
         ListFlat: ListFlatScreen,
       },
       {
-        defaultNavigationOptions: defaultStyleNav
+        navigationOptions: {
+          drawerIcon: (drawerConfig) => (
+            <SimpleLineIcons
+              name="cloud-upload"
+              size={20}
+              color={drawerConfig.tintColor}
+            />
+          ),
+        },
+        defaultNavigationOptions: defaultStyleNav,
       }
     );
 
@@ -135,11 +153,22 @@ const BottomTabNavigator =
         YourFlat: YourFlatScreen,
       },
       {
-        defaultNavigationOptions: defaultStyleNav
+        navigationOptions: {
+          drawerIcon: (drawerConfig) => (
+            <MaterialCommunityIcons
+              name="flattr"
+              size={20}
+              color={drawerConfig.tintColor}
+            />
+          ),
+        },
+        defaultNavigationOptions: defaultStyleNav,
       }
     );
 
 // drawer navigation
+
+
 const DrawerNavigator = createDrawerNavigator({
   Home: BottomTabNavigator,
   Friends: FriendNavigator,
