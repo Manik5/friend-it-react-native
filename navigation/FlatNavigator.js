@@ -13,12 +13,13 @@ import Colors from '../constants/color.constant';
 
 import HomeScreen from '../screens/HomeScreen';
 import FlatDetailScreen from '../screens/FlatDetailScreen';
+import BookingOverlayScreen from '../screens/BookingOverlayScreen'
 
 
 const FlatNavigator = createStackNavigator({
 	Home: HomeScreen,
 	FlatDetail: FlatDetailScreen,
-
+	BookingOverlay: BookingOverlayScreen,
 }, {
   defaultNavigationOptions: {
     headerTitleStyle: {

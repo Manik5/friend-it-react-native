@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button, Overlay } from "react-native-elements";
+import { View, Text } from 'react-native';
 
-const OverlayExample = () => {
+const BookingOverlayScreen = () => {
   const [visible, setVisible] = useState(false);
 
   const toggleOverlay = () => {
@@ -11,7 +12,6 @@ const OverlayExample = () => {
   return (
     <View>
       <Button title="Open Overlay" onPress={toggleOverlay} />
-
       <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
         <Text>Hello from Overlay!</Text>
       </Overlay>
@@ -19,4 +19,4 @@ const OverlayExample = () => {
   );
 };
 
-export default OverlayExample;
+export default BookingOverlayScreen;
