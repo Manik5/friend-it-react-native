@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, View } from 'react-native';
+import { Card } from 'react-native-elements';
 import { Input } from 'react-native-elements';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -194,17 +195,17 @@ class ShiftTimingScreen extends Component {
 
     switch (format2) {
       case "datetime": {
-        dateFormatted = date2.toString('dd/MM/yyyy - hh:mm TT');
+        dateFormatted = date2.toString('dd/MM/yyyy');
         return dateFormatted;
       }
       case "date": {
         dateFormatted = date2.toString('dd/MM/yyyy');
         return dateFormatted;
       }
-      case "time": {
-        dateFormatted = date2.toString('hh:mm TT');
-        return dateFormatted;
-      }
+      // case "time": {
+      //   dateFormatted = date2.toString('hh:mm TT');
+      //   return dateFormatted;
+      // }
       default:
         return null;
     }
@@ -220,8 +221,8 @@ class ShiftTimingScreen extends Component {
         return this.setState({ [visibilityVariableName]: true, datePickerVisible: true, timePickerVisible: false });
       case "date":
         return this.setState({ [visibilityVariableName]: true, datePickerVisible: true, timePickerVisible: false });
-      case "time":
-        return this.setState({ [visibilityVariableName]: true, datePickerVisible: false, timePickerVisible: true });
+      // case "time":
+      //   return this.setState({ [visibilityVariableName]: true, datePickerVisible: false, timePickerVisible: true });
     }
   }
 
@@ -231,15 +232,15 @@ class ShiftTimingScreen extends Component {
     let defaultShiftStartDateTime = new Date();
     defaultShiftStartDateTime.setDate(defaultShiftStartDateTime.getDate() + 1);
     defaultShiftStartDateTime.setHours(9);
-    defaultShiftStartDateTime.setMinutes(0);
-    defaultShiftStartDateTime.setSeconds(0);
+    // defaultShiftStartDateTime.setMinutes(0);
+    // defaultShiftStartDateTime.setSeconds(0);
 
     // 2. For the "Shift End", Initial/Default value for the DateTimePicker
     let defaultShiftEndDateTime = new Date();
     defaultShiftEndDateTime.setDate(defaultShiftEndDateTime.getDate() + 1);
     defaultShiftEndDateTime.setHours(17);
-    defaultShiftEndDateTime.setMinutes(0);
-    defaultShiftEndDateTime.setSeconds(0);
+    // defaultShiftEndDateTime.setMinutes(0);
+    // defaultShiftEndDateTime.setSeconds(0);
 
     return (
       <View>
@@ -251,7 +252,7 @@ class ShiftTimingScreen extends Component {
           }}>
           <Input
             label='Check In'
-            placeholder={"01/01/2019 - 09:00 AM"}
+            placeholder={"01/01/2019"}
             editable={false}
             value={this.fFormatDateTime(this.state.StartingDateTimeValue)}
           />
@@ -271,7 +272,6 @@ class ShiftTimingScreen extends Component {
             // YOU NEED TO REPLACE IT WITH SOMETHING RELEVANT TO YOUR APP.
             this.saveStartingDateTime,
           )}
-
 
         <TouchableOpacity
           onPress={() => {
