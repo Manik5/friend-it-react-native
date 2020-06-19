@@ -1,9 +1,14 @@
 import React from 'react';
-import { Text, View, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Platform } from 'react-native';
 
 import { useSelector } from 'react-redux';
 
 import FlatCard from '../components/FlatCard';
+
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton';
+
+import { Ionicons } from '@expo/vector-icons';
 
 
 const HomeScreen = props => {
@@ -34,9 +39,23 @@ const HomeScreen = props => {
   )
 };
 
-HomeScreen.navigationOptions = {
-  headerTitle: 'Home'
-};
+HomeScreen.navigationOptions = navData => {
+  return {
+    headerTitle: 'Home',
+    headerLeft: () => (
+      <HeaderButtons
+         HeaderButtonComponent={HeaderButton}
+      >
+      <Item title='Menu'
+      iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+      onPress={() => {
+        navData.navigation.toggleDrawer()
+      }}
+      />
+     </HeaderButtons>
+    )
+   }
+ }
 
 const styles = StyleSheet.create({
 

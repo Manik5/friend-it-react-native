@@ -19,6 +19,7 @@ import FlatDetailScreen from '../screens/FlatDetailScreen';
 import BookingOverlayScreen from '../screens/BookingOverlayScreen'
 
 
+
 // bottom navigator
 import DashboardScreen from './BottomNavigator/DashBoardScreen';
 import MessagesScreen from './BottomNavigator/MessagesScreen';
@@ -30,19 +31,22 @@ import FriendListScreen from './DrawerNavigation/FriendListScreen';
 import ListFlatScreen from './DrawerNavigation/ListFlatScreen';
 import YourFlatScreen from './DrawerNavigation/YourFlatScreen';
 
+
+const defaultStyleNav = {
+  headerTitleStyle: {
+    backgroundColor: "white",
+    fontSize: 18,
+    fontFamily: "open-sans-bold",
+  },
+  headerTintColor: Colors.primary
+};
+
 const FlatNavigator = createStackNavigator({
   Home: HomeScreen,
   FlatDetail: FlatDetailScreen,
   BookingOverlay: BookingOverlayScreen,
 }, {
-  defaultNavigationOptions: {
-    headerTitleStyle: {
-      backgroundColor: 'white',
-      fontSize: 18,
-      fontFamily: 'open-sans-bold'
-    },
-    headerTintColor: Colors.primary
-  },
+  defaultNavigationOptions: defaultStyleNav
 });
 
 
@@ -106,17 +110,34 @@ const BottomTabNavigator =
       }
     );
 
-    const FriendNavigator = createStackNavigator({
-      FriendList: FriendListScreen,
-    });
+    // drawer navigation
 
-    const ListNavigator = createStackNavigator({
-      ListFlat: ListFlatScreen,
-    })
+    const FriendNavigator = createStackNavigator(
+      {
+        FriendList: FriendListScreen,
+      },
+      {
+        defaultNavigationOptions: defaultStyleNav
+      }
+    );
 
-    const YourFlatNavigator = createStackNavigator({
-      YourFlat: YourFlatScreen
-    })
+    const ListNavigator = createStackNavigator(
+      {
+        ListFlat: ListFlatScreen,
+      },
+      {
+        defaultNavigationOptions: defaultStyleNav
+      }
+    );
+
+    const YourFlatNavigator = createStackNavigator(
+      {
+        YourFlat: YourFlatScreen,
+      },
+      {
+        defaultNavigationOptions: defaultStyleNav
+      }
+    );
 
 // drawer navigation
 const DrawerNavigator = createDrawerNavigator({
