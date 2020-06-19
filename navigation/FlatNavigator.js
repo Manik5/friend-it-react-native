@@ -18,24 +18,33 @@ import FlatDetailScreen from '../screens/FlatDetailScreen';
 import BookingOverlayScreen from '../screens/BookingOverlayScreen'
 
 // bottom navigator
-
+import ProfileScreen from '../screens/BottomNavigatorScreen/ProfileScreen';
+import MessagesScreen from '../screens/BottomNavigatorScreen/MesagesScreen';
+import DashboardScreen from '../screens/BottomNavigatorScreen/DashBoardScreen';
 // bottom navigator
 
 
 const FlatNavigator = createStackNavigator({
-	Home: HomeScreen,
-	FlatDetail: FlatDetailScreen,
-	BookingOverlay: BookingOverlayScreen,
+  Home: HomeScreen,
+  FlatDetail: FlatDetailScreen,
+  BookingOverlay: BookingOverlayScreen,
 }, {
   defaultNavigationOptions: {
     headerTitleStyle: {
-			backgroundColor: 'white',
-			fontSize: 18,
-			fontFamily: 'open-sans-bold'
+      backgroundColor: 'white',
+      fontSize: 18,
+      fontFamily: 'open-sans-bold'
     },
     headerTintColor: Colors.primary
-	},
+  },
+});
+
+const BottomTabNavigator = createBottomTabNavigator({
+  Home: FlatNavigator,
+  Dashboard: DashboardScreen,
+  Messages: MessagesScreen,
+  Profile: ProfileScreen
 });
 
 
-export default createAppContainer(FlatNavigator);
+export default createAppContainer(BottomTabNavigator);
