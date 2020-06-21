@@ -7,6 +7,7 @@ import {
   TextInput
 } from "react-native";
 
+import { useSelector } from 'react-redux';
 
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";
@@ -22,30 +23,52 @@ const UploadYourFlatScreen = (props) => {
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
 
+  const flatId = props.navigation.getParam('flatId');
+
 
   return (
     <ScrollView>
       <View style={styles.form}>
         <View style={styles.formControl}>
           <Text style={styles.label}>Title</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={title}
+            onChange={(text) => setTitle(text)}
+          />
         </View>
         <ImagePicker />
         <View style={styles.formControl}>
           <Text style={styles.label}>Description</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={description}
+            onChange={(text) => setDescription(text)}
+          />
         </View>
         <Text style={styles.label}>Perks</Text>
         <View style={styles.perkContainer}>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={perks}
+            onChange={(text) => setPerks(text)}
+          />
         </View>
         <View style={styles.formControl}>
           <Text style={styles.label}>Price</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={price}
+            onChange={(text) => setPrice(text)}
+          />
         </View>
         <View style={styles.formControl}>
           <Text style={styles.label}>Location</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={location}
+            onChange={(text) => setLocation(text)}
+          />
         </View>
       </View>
     </ScrollView>
