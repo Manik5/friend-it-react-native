@@ -5,7 +5,7 @@ import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 
 export default function ImagePickerExample() {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState();
 
   useEffect(() => {
     (async () => {
@@ -36,17 +36,12 @@ export default function ImagePickerExample() {
   };
 
   return (
-    // <View style={styles.imagePicker}>
-    //   <Button title="Upload an image" onPress={pickImage} />
-    //   {image && (
-    //     <Image source={{ uri: image }} style={{ width: '100%', height: 200 }} />
-    //   )}
-    // </View>
 
     <View style={styles.imagePicker}>
       <View style={styles.imagePreview}>
-        <Text>No image picked yet.</Text>
-        {image && (
+        {!image ? (
+          <Text>No image picked yet.</Text>
+        ) : (
           <Image
             source={{ uri: image }}
             style={styles.image}
