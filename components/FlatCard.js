@@ -27,12 +27,18 @@ const FlatCard = props => {
         containerStyle={{
           borderRadius: 10,
           padding: 10,
+          marginBottom: 20
         }}
       >
         <Image style={styles.image} source={{ uri: props.image }} />
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.price}>${props.price}</Text>
-        <Text style={styles.location}><MaterialIcons name='location-on' size={18} color={Colors.primary} /> {props.location}</Text>
+        <Text
+          style={styles.location}>
+            <MaterialIcons
+              name='location-on'
+              size={18} color={Colors.primary}
+            /> {props.location}</Text>
         <Button
           title="View"
           type="outline"

@@ -1,17 +1,40 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";
 
+import FlatCard from '../../components/FlatCard';
+
+import { useSelector } from 'react-redux';
 
 const YourFlatScreen = (props) => {
+  const userFlats = useSelector(
+    state => state.flats.userFlats
+  )
+
   return (
-    <View style={styles.screen}>
-      <Text>This is the YourFlatScreen</Text>
-    </View>
+    <FlatList
+      data={userFlats}
+      keyExtractor={item => item.id}
+      renderItem={
+        itemData => (
+          <FlatCard
+            image={itemData.item.imageUrl}
+            title={itemData.item.title}
+            price={itemData.item.price}
+            location={itemData.item.location}
+            onViewDetail={() => {
+
+            }}
+          />
+        )
+      }
+    />
   );
 };
+
+
 
 YourFlatScreen.navigationOptions = navData => {
   return {

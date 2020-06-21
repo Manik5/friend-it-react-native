@@ -33,8 +33,9 @@ const HomeScreen = props => {
                flatId: itemData.item.id,
                flatTitle: itemData.item.title
               }
-              )
-            }}
+             )
+            }
+          }
             />
           }
       />
