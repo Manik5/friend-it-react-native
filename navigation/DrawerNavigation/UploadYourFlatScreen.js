@@ -4,7 +4,7 @@ import { View, StyleSheet, Text, ScrollView, TextInput } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";
 
-import ImagePicker from '../../components/ImagePicker';
+import ImagePicker from '../../components/ImagePicker'
 
 const UploadYourFlatScreen = (props) => {
   return (
