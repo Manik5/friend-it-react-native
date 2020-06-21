@@ -21,7 +21,7 @@ const FlatCard = props => {
 
   return (
     <TouchableComponent
-      onPress={props.onViewDetail}
+      onPress={props.onSelect}
      >
       <Card
         containerStyle={{
@@ -38,17 +38,9 @@ const FlatCard = props => {
             <MaterialIcons
               name='location-on'
               size={18} color={Colors.primary}
-            /> {props.location}</Text>
-        <Button
-          title="View"
-          type="outline"
-          buttonStyle={{
-            borderRadius: 20,
-            backgroundColor: "white",
-            width: 100,
-          }}
-          onPress={props.onViewDetail}
-        />
+            /> {props.location}
+				</Text>
+				{ props.children }
       </Card>
     </TouchableComponent>
   );
