@@ -14,37 +14,37 @@ import SearchBar from '../components/SearchBar';
 const HomeScreen = props => {
   const flats = useSelector(state => state.flats.availableFlats);
   return (
-		<View>
-			{/* <SearchBar /> */}
+    <View>
+      {/* <SearchBar /> */}
       <FlatList
        data={flats}
        keyExtractor={item => item.id}
        renderItem={
-				 itemData =>
-				 <FlatCard
-				 image={itemData.item.imageUrl}
-				 title={itemData.item.title}
-				 price={itemData.item.price}
-				 location={itemData.item.location}
-				 onViewDetail={() => {
-					 props.navigation.navigate(
-						 'FlatDetail',
-						 {
-							 flatId: itemData.item.id,
-							 flatTitle: itemData.item.title
-							}
-							)
+         itemData =>
+         <FlatCard
+         image={itemData.item.imageUrl}
+         title={itemData.item.title}
+         price={itemData.item.price}
+         location={itemData.item.location}
+         onViewDetail={() => {
+           props.navigation.navigate(
+             'FlatDetail',
+             {
+               flatId: itemData.item.id,
+               flatTitle: itemData.item.title
+              }
+              )
             }}
-						/>
-					}
+            />
+          }
       />
-		</View>
+    </View>
   )
 };
 
 HomeScreen.navigationOptions = navData => {
   return {
-		headerTitle: 'Home',
+    headerTitle: 'Home',
     headerLeft: () => (
       <HeaderButtons
          HeaderButtonComponent={HeaderButton}

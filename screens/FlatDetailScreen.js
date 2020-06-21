@@ -4,8 +4,8 @@ import { Card, Button } from 'react-native-elements';
 
 import { useSelector } from 'react-redux';
 
-import MapView from 'react-native-maps';
 import ShiftTimingScreen from '../components/DatePicker';
+import MapComponent from '../components/MapComponent';
 
 import Colors from '../constants/color.constant';
 
@@ -57,9 +57,7 @@ const FlatDetailScreen = props => {
           onPress={() => {}}
         />
       </View>
-      <View style={styles.mapContainer}>
-        <MapView style={styles.mapStyle} />
-      </View>
+      <MapComponent />
     </ScrollView>
   );
 }
@@ -120,13 +118,6 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     marginTop: 30,
     marginBottom: 30
-  },
-    mapContainer: {
-      borderRadius: 40
-    },
-  mapStyle: {
-    width: 400,
-    height: 300,
   },
 });
 
