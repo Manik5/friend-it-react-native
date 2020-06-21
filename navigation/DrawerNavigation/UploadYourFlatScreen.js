@@ -1,48 +1,59 @@
-import React from "react";
-import { View, StyleSheet, Text, ScrollView, TextInput } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  TextInput
+} from "react-native";
+
 
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";
 
 import ImagePicker from '../../components/ImagePicker';
 
-const ListFlatScreen = (props) => {
+import Colors from '../../constants/color.constant';
+
+const UploadYourFlatScreen = (props) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [perks, setPerks] = useState("");
+  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
+
+
   return (
     <ScrollView>
-      <View style={styles.formControl}>
-        <Text style={styles.label}>Title</Text>
-        <TextInput style={styles.input} />
-      </View>
-      <ImagePicker />
-      <View style={styles.formControl}>
-        <Text style={styles.label}>Description</Text>
-        <TextInput style={styles.input} />
-      </View>
-      <View style={styles.formControl}>
+      <View style={styles.form}>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Title</Text>
+          <TextInput style={styles.input} />
+        </View>
+        <ImagePicker />
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Description</Text>
+          <TextInput style={styles.input} />
+        </View>
         <Text style={styles.label}>Perks</Text>
-        <TextInput style={styles.input} />
-      </View>
-      <View style={styles.formControl}>
-        <Text style={styles.label}>Price</Text>
-        <TextInput style={styles.input} />
-      </View>
-      <View style={styles.formControl}>
-        <Text style={styles.label}>Location</Text>
-        <TextInput style={styles.input} />
+        <View style={styles.perkContainer}>
+          <TextInput style={styles.input} />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Price</Text>
+          <TextInput style={styles.input} />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Location</Text>
+          <TextInput style={styles.input} />
+        </View>
       </View>
     </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
-ListFlatScreen.navigationOptions = navData => {
+UploadYourFlatScreen.navigationOptions = navData => {
   return {
     headerTitle: "Upload Your Flat",
     headerLeft: () => (
@@ -56,7 +67,45 @@ ListFlatScreen.navigationOptions = navData => {
         />
       </HeaderButtons>
     ),
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Save"
+          iconName={Platform.OS === "android" ? "md-checkmark" : "ios-checkmark"}
+          onPress={() => {}}
+        />
+      </HeaderButtons>
+    ),
   };
 }
 
-export default ListFlatScreen;
+const styles = StyleSheet.create({
+  form: {
+    margin: 20
+  },
+  formControl: {
+    width: '100%'
+  },
+  perkContainer: {
+    width: '100%',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#ccc',
+    borderWidth: 1,
+    marginTop: 20
+  },
+  label: {
+    fontFamily: 'open-sans-bold',
+    marginVertical: 8
+  },
+  input: {
+    paddingHorizontal: 2,
+    paddingVertical: 5,
+    borderBottomColor: Colors.primary,
+    borderBottomWidth: 1
+  },
+});
+
+
+export default UploadYourFlatScreen;
