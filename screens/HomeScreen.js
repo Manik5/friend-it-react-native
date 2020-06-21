@@ -44,21 +44,21 @@ const HomeScreen = props => {
               selectItemHandler(itemData.item.id, itemData.item.title);
             }}
           >
-						<View style={styles.actions}>
-	            <Button
-	              title="View"
-								type="outline"
-								raised
-	              buttonStyle={{
-	                borderRadius: 20,
-	                backgroundColor: "white",
-	                width: 100,
-	              }}
-	              onPress={() => {
-	                selectItemHandler(itemData.item.id, itemData.item.title);
-	              }}
-	            />
-						</View>
+            <View style={styles.actions}>
+              <Button
+                title="View"
+                type="outline"
+                raised
+                buttonStyle={{
+                  borderRadius: 20,
+                  backgroundColor: "white",
+                  width: 100,
+                }}
+                onPress={() => {
+                  selectItemHandler(itemData.item.id, itemData.item.title);
+                }}
+              />
+            </View>
           </FlatCard>
         )}
       />
@@ -85,11 +85,11 @@ HomeScreen.navigationOptions = navData => {
  }
 
 const styles = StyleSheet.create({
-	actions: {
-		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'flex-start'
-	}
+  actions: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
+  }
 });
 
 export default HomeScreen;

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import { View, StyleSheet, Text, FlatList, Alert } from "react-native";
 
 import { Button } from 'react-native-elements';
 
@@ -8,12 +8,25 @@ import HeaderButton from "../../components/HeaderButton";
 
 import FlatCard from '../../components/FlatCard';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import * as flatActions from '../../redux/actions/flat.action';
 
 const YourFlatScreen = (props) => {
   const userFlats = useSelector(
     state => state.flats.userFlats
   )
+
+  const dispatch = useDispatch();
+
+  // const alertDeleteFlat = () => {
+  //   Alert.alert("Are you sure?", [
+  //     {
+  //       text: "Yes",
+  //       onPress: () => dispatch(flatActions.deleteFlat(itemData.item.id)),
+  //     },
+  //   ]);
+  // }
+
 
   return (
     <FlatList
@@ -47,7 +60,9 @@ const YourFlatScreen = (props) => {
                 width: 100,
                 backgroundColor: "#d92027",
               }}
-              onPress={() => {}}
+              onPress={() => {
+                dispatch(flatActions.deleteFlat(itemData.item.id))
+              }}
             />
           </View>
         </FlatCard>
