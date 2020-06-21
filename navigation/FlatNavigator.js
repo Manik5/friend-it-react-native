@@ -28,7 +28,7 @@ import TripsScreen from './BottomNavigator/TripsScreen';
 
 // drawer navigation
 import FriendListScreen from './DrawerNavigation/FriendListScreen';
-import ListFlatScreen from './DrawerNavigation/ListFlatScreen';
+import UploadYourFlatScreen from './DrawerNavigation/UploadYourFlatScreen';
 import YourFlatScreen from './DrawerNavigation/YourFlatScreen';
 
 
@@ -132,9 +132,9 @@ const BottomTabNavigator =
       }
     );
 
-    const ListNavigator = createStackNavigator(
+    const UploadNavigator = createStackNavigator(
       {
-        ListFlat: ListFlatScreen,
+        UploadFlat: UploadYourFlatScreen,
       },
       {
         navigationOptions: {
@@ -187,7 +187,7 @@ const DrawerNavigator = createDrawerNavigator(
       },
     },
     Friends: FriendNavigator,
-    Upload: ListNavigator,
+    Upload: UploadNavigator,
     Flats: YourFlatNavigator,
   },
   {}
