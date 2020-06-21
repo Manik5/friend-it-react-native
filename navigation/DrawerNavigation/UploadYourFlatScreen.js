@@ -4,9 +4,9 @@ import { View, StyleSheet, Text, ScrollView, TextInput } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";
 
-import ImagePicker from '../../components/ImagePicker'
+import ImagePicker from '../../components/ImagePicker';
 
-const UploadYourFlatScreen = (props) => {
+const ListFlatScreen = (props) => {
   return (
     <ScrollView>
       <View style={styles.formControl}>
@@ -34,8 +34,15 @@ const UploadYourFlatScreen = (props) => {
   );
 };
 
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
-UploadYourFlatScreen.navigationOptions = navData => {
+ListFlatScreen.navigationOptions = navData => {
   return {
     headerTitle: "Upload Your Flat",
     headerLeft: () => (
@@ -46,17 +53,10 @@ UploadYourFlatScreen.navigationOptions = navData => {
           onPress={() => {
             navData.navigation.toggleDrawer();
           }}
-          />
+        />
       </HeaderButtons>
     ),
   };
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
-export default UploadYourFlatScreen;
+export default ListFlatScreen;
