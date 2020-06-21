@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, View, StyleSheet, FlatList, Platform } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  Platform
+} from 'react-native';
+
 import { Button } from 'react-native-elements';
 
 import { useSelector } from 'react-redux';
@@ -9,19 +16,18 @@ import FlatCard from '../components/FlatCard';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 
-import Colors from "../constants/color.constant";
 
 
 
 const HomeScreen = props => {
-	const flats = useSelector(state => state.flats.availableFlats);
+  const flats = useSelector(state => state.flats.availableFlats);
 
-	const selectItemHandler = (id, title) => {
-		props.navigation.navigate("FlatDetail", {
+  const selectItemHandler = (id, title) => {
+    props.navigation.navigate("FlatDetail", {
       flatId: id,
       flatTitle: title,
     });
-	}
+  }
 
   return (
     <View>
@@ -35,21 +41,24 @@ const HomeScreen = props => {
             price={itemData.item.price}
             location={itemData.item.location}
             onSelect={() => {
-							selectItemHandler(itemData.item.id, itemData.item.title);
-						}}
+              selectItemHandler(itemData.item.id, itemData.item.title);
+            }}
           >
-            <Button
-              title="View"
-              type="outline"
-              buttonStyle={{
-                borderRadius: 20,
-                backgroundColor: "white",
-                width: 100,
-              }}
-              onPress={() => {
-								selectItemHandler(itemData.item.id, itemData.item.title);
-							}}
-            />
+						<View style={styles.actions}>
+	            <Button
+	              title="View"
+								type="outline"
+								raised
+	              buttonStyle={{
+	                borderRadius: 20,
+	                backgroundColor: "white",
+	                width: 100,
+	              }}
+	              onPress={() => {
+	                selectItemHandler(itemData.item.id, itemData.item.title);
+	              }}
+	            />
+						</View>
           </FlatCard>
         )}
       />
@@ -76,7 +85,11 @@ HomeScreen.navigationOptions = navData => {
  }
 
 const styles = StyleSheet.create({
-
+	actions: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'flex-start'
+	}
 });
 
 export default HomeScreen;

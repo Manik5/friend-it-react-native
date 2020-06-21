@@ -1,6 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Text, FlatList } from "react-native";
 
+import { Button } from 'react-native-elements';
+
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";
 
@@ -16,20 +18,40 @@ const YourFlatScreen = (props) => {
   return (
     <FlatList
       data={userFlats}
-      keyExtractor={item => item.id}
-      renderItem={
-        itemData => (
-          <FlatCard
-            image={itemData.item.imageUrl}
-            title={itemData.item.title}
-            price={itemData.item.price}
-            location={itemData.item.location}
-            onViewDetail={() => {
-
-            }}
-          />
-        )
-      }
+      keyExtractor={(item) => item.id}
+      renderItem={(itemData) => (
+        <FlatCard
+          image={itemData.item.imageUrl}
+          title={itemData.item.title}
+          price={itemData.item.price}
+          location={itemData.item.location}
+          onSelect={() => {}}
+        >
+          <View style={styles.action}>
+            <Button
+              title="Edit"
+              type="outline"
+              raised
+              buttonStyle={{
+                borderRadius: 20,
+                backgroundColor: "white",
+                width: 100,
+              }}
+              onPress={() => {}}
+            />
+            <Button
+              title="Delete"
+              type="solid"
+              buttonStyle={{
+                borderRadius: 20,
+                width: 100,
+                backgroundColor: "#d92027",
+              }}
+              onPress={() => {}}
+            />
+          </View>
+        </FlatCard>
+      )}
     />
   );
 };
@@ -59,6 +81,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  action: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 });
 
 export default YourFlatScreen;

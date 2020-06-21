@@ -40,7 +40,8 @@ const FlatDetailScreen = props => {
       <View style={styles.action}>
         <Button
           title="Book"
-          type="outline"
+					type="outline"
+					raised
           buttonStyle={{
             borderRadius: 20,
             width: 100,
@@ -49,10 +50,10 @@ const FlatDetailScreen = props => {
         />
         <Button
           title="Swap"
-          type="solid"
+					type="solid"
           buttonStyle={{
             borderRadius: 20,
-            width: 100,
+						width: 100,
           }}
           onPress={() => {}}
         />
