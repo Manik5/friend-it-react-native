@@ -7,6 +7,7 @@ import {
   TextInput
 } from "react-native";
 
+import { useSelector } from 'react-redux';
 
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";
@@ -16,13 +17,18 @@ import ImagePicker from '../../components/ImagePicker';
 import Colors from '../../constants/color.constant';
 
 const UploadYourFlatScreen = (props) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [perks, setPerks] = useState("");
-  const [price, setPrice] = useState("");
-  const [location, setLocation] = useState("");
 
-  const flatId = props.navigation.getParam('flatId');
+  const flId = props.navigation.getParam('flatId');
+  const editedFlat = useSelector(
+    state => state.flats.userFlats.find(
+      fl => fl.id === flId
+    ))
+
+  const [title, setTitle] = useState(editedFlat ? editedFlat.title : '');
+  const [description, setDescription] = useState(editedFlat ? editedFlat.description : '');
+  const [perks, setPerks] = useState(editedFlat ? editedFlat.perks : '');
+  const [price, setPrice] = useState('');
+  const [location, setLocation] = useState(editedFlat ? editedFlat.location : '');
 
 
   return (
@@ -33,7 +39,7 @@ const UploadYourFlatScreen = (props) => {
           <TextInput
             style={styles.input}
             value={title}
-            onChange={(text) => setTitle(text)}
+            onChange={text => setTitle(text)}
           />
         </View>
         <ImagePicker />
@@ -42,7 +48,7 @@ const UploadYourFlatScreen = (props) => {
           <TextInput
             style={styles.input}
             value={description}
-            onChange={(text) => setDescription(text)}
+            onChange={text => setDescription(text)}
           />
         </View>
         <Text style={styles.label}>Perks</Text>
@@ -50,7 +56,7 @@ const UploadYourFlatScreen = (props) => {
           <TextInput
             style={styles.input}
             value={perks}
-            onChange={(text) => setPerks(text)}
+            onChange={text => setPerks(text)}
           />
         </View>
         <View style={styles.formControl}>
@@ -58,7 +64,7 @@ const UploadYourFlatScreen = (props) => {
           <TextInput
             style={styles.input}
             value={price}
-            onChange={(text) => setPrice(text)}
+            onChange={text => setPrice(text)}
           />
         </View>
         <View style={styles.formControl}>
@@ -66,7 +72,7 @@ const UploadYourFlatScreen = (props) => {
           <TextInput
             style={styles.input}
             value={location}
-            onChange={(text) => setLocation(text)}
+            onChange={text => setLocation(text)}
           />
         </View>
       </View>
@@ -77,7 +83,9 @@ const UploadYourFlatScreen = (props) => {
 
 UploadYourFlatScreen.navigationOptions = navData => {
   return {
-    headerTitle: "Upload Your Flat",
+    headerTitle: navData.navigation.getParam('flatId')
+    ? 'Edit Flat'
+    : 'Upload Flat',
     headerLeft: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item

@@ -19,7 +19,7 @@ const YourFlatScreen = (props) => {
   const dispatch = useDispatch();
 
   const editFlat = (id) => {
-    props.navigation.navigate('Upload', {flatId: id});
+    props.navigation.navigate('Upload', { flatId: id });
   }
 
 
