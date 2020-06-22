@@ -7,9 +7,6 @@ import {
   TextInput
 } from "react-native";
 
-import { Button } from 'react-native-elements';
-
-import { useSelector } from 'react-redux';
 
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../../components/HeaderButton";

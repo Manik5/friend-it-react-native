@@ -18,14 +18,9 @@ const YourFlatScreen = (props) => {
 
   const dispatch = useDispatch();
 
-  // const alertDeleteFlat = () => {
-  //   Alert.alert("Are you sure?", [
-  //     {
-  //       text: "Yes",
-  //       onPress: () => dispatch(flatActions.deleteFlat(itemData.item.id)),
-  //     },
-  //   ]);
-  // }
+  const editFlat = (id) => {
+    props.navigation.navigate('Upload', {flatId: id});
+  }
 
 
   return (
@@ -38,7 +33,9 @@ const YourFlatScreen = (props) => {
           title={itemData.item.title}
           price={itemData.item.price}
           location={itemData.item.location}
-          onSelect={() => {}}
+          onSelect={() => {
+            editFlat(itemData.item.id)
+          }}
         >
           <View style={styles.action}>
             <Button
@@ -50,7 +47,9 @@ const YourFlatScreen = (props) => {
                 backgroundColor: "white",
                 width: 100,
               }}
-              onPress={() => {}}
+              onPress={() => {
+                editFlat(itemData.item.id)
+              }}
             />
             <Button
               title="Delete"
@@ -83,6 +82,17 @@ YourFlatScreen.navigationOptions = navData => {
           iconName={Platform.OS === "android" ? "md-menu" : "ios-menu"}
           onPress={() => {
             navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Add"
+          iconName={Platform.OS === "android" ? "md-create" : "ios-create"}
+          onPress={() => {
+            navData.navigation.navigate('Upload');
           }}
         />
       </HeaderButtons>
